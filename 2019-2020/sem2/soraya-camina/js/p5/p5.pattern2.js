@@ -59,7 +59,7 @@
 			const matrix = ctx.getTransform();
 			this.pop();
 
-
+			console.log(this._pixelDensity);
 
 			ctx.restore();
 
@@ -89,6 +89,9 @@
 			ctx.save();
 			ctx.resetTransform();
 			let px = 1/this._pixelDensity;
+
+
+			
 			
 			this.push();
 			transforms.call();

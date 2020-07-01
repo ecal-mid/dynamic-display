@@ -65,7 +65,7 @@ function setup() {
 
     createCanvas(paperWidth, round(paperWidth / ratio));
 
-    // pixelDensity(2);
+    pixelDensity(2);
 
     setupGui();
 }

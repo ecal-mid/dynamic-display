@@ -224,9 +224,14 @@
 }
 
 .dg .c select {
+
   background: yellow;
   color: black;
 
+  display: block;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
   border: 1px solid black;
   border-radius: 0;
   outline: 0;
@@ -315,7 +320,6 @@
 #dat-gui-save-locally {
   display: none;
 }
-
 
 /** Main type */
 
