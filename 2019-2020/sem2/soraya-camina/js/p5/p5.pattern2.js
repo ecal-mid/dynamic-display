@@ -51,13 +51,11 @@
 			ctx.save();
 			ctx.resetTransform();
 			let px = 1/this._pixelDensity;
-			this.push();
 		
 			transforms.call(p5Elem);
-			ctx.scale(.5, .5);
+			ctx.scale(1, 1);
 
 			const matrix = ctx.getTransform();
-			this.pop();
 
 			ctx.restore();
 
