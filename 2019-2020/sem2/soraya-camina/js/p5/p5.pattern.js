@@ -52,9 +52,10 @@
 			ctx.resetTransform();
 			let px = 1/this._pixelDensity;
 			this.push();
-			ctx.scale(.5, .5);
+			// ctx.scale(.5, .5);
+		
 			transforms.call(p5Elem);
-			ctx.translate(-p5Elem.canvas.width/2, -p5Elem.canvas.height/2);
+
 			const matrix = ctx.getTransform();
 			this.pop();
 			ctx.restore();

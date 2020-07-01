@@ -5,9 +5,9 @@ let LAYERS = {};
 
 let ZOOM = {
     C: 1,
-    A: 1, //1.3
+    A: 1.3, //1.3
     S: 1,
-    P: 1, //1.5
+    P: 1.5, //1.5
 }
 
 
@@ -61,9 +61,11 @@ function setup() {
     const ratio = 0.7085001177;
     const paperWidth = 500;
 
-    // pixelDensity(1);
+    
 
     createCanvas(paperWidth, round(paperWidth / ratio));
+
+    pixelDensity(2);
 
     setupGui();
 }
@@ -71,29 +73,29 @@ function setup() {
 function setupGui() {
     const gui = new dat.GUI();
 
-  gui.add(PROPS, 'currLayer', PROPS.layers);
-    ZOOM.folder = gui.addFolder('Zoom');
+  gui.add(PROPS, 'currLayer', PROPS.layers).name('Image');
+    // ZOOM.folder = gui.addFolder('Zoom');
 
-    ZOOM.folder.add(ZOOM, 'C').min(1).max(2);//.step(0.1);
-    ZOOM.folder.add(ZOOM, 'A').min(1).max(2);//.step(0.1);
-    ZOOM.folder.add(ZOOM, 'S').min(1).max(2);//.step(0.1);
-    ZOOM.folder.add(ZOOM, 'P').min(1).max(2);//.step(0.1);
+    gui.add(ZOOM, 'C').min(1).max(2);//.step(0.1);
+    gui.add(ZOOM, 'A').min(1).max(2);//.step(0.1);
+    gui.add(ZOOM, 'S').min(1).max(2);//.step(0.1);
+    gui.add(ZOOM, 'P').min(1).max(2);//.step(0.1);
 
-    ZOOM.folder.open();
-
+    // ZOOM.folder.open();
 
     //gui.add(PROPS, 'letterWeight').min(30).max(72);
     //gui.add(PROPS, 'Save Image');
 
-    gui.add(PROPS, 'Save Image');
+    gui.add(PROPS, 'Save Image').name('Download');
 }
 
 function drawLetterC() {
     // C shape
     fill(LAYERS[PROPS.currLayer], 'repeat', function() {
-        translate(this.width, this.height);
-        let zoom = ZOOM.C;
+        let zoom = ZOOM.C; //ZOOM.C * 2, map(ZOOM.C, 2, 10, -2, 5)$
+        translate(this.width/2, this.height/2);
         scale(zoom, zoom);
+        translate(-this.width/2, -this.height/2);
     });
 
     beginShape();
@@ -112,9 +114,11 @@ function drawLetterA() {
     // A shape
 
     fill(LAYERS[PROPS.currLayer], 'repeat', function() {
-        translate(this.width, this.height);
-        let zoom = ZOOM.A; //ZOOM.C * 2, map(ZOOM.C, 2, 10, -2, 5)
+        let zoom = ZOOM.A; //ZOOM.C * 2, map(ZOOM.C, 2, 10, -2, 5)$
+        translate(this.width/2, this.height/2);
         scale(zoom, zoom);
+        translate(-this.width/2, -this.height/2);
+
     });
 
     beginShape();
@@ -139,10 +143,10 @@ function drawLetterA() {
 function drawLetterS() {
     // S shape
     fill(LAYERS[PROPS.currLayer], 'repeat', function() {
-        translate(this.width, this.height);
-        let zoom = ZOOM.S; //ZOOM.C * 2, map(ZOOM.C, 2, 10, -2, 5)
-        //  let zoom = map(mouseX, 0, width, 0.8, 3);
+        let zoom = ZOOM.S; //ZOOM.C * 2, map(ZOOM.C, 2, 10, -2, 5)$
+        translate(this.width/2, this.height/2);
         scale(zoom, zoom);
+        translate(-this.width/2, -this.height/2);
     });
 
     beginShape();
@@ -171,10 +175,10 @@ function drawLetterS() {
 function drawLetterP() {
     // P shape
     fill(LAYERS[PROPS.currLayer], 'repeat', function() {
-        translate(this.width, this.height);
-        let zoom = ZOOM.P; //ZOOM.C * 2, map(ZOOM.C, 2, 10, -2, 5)
-        //let zoom = map(mouseX, 0, width, 0.4, 6);
+        let zoom = ZOOM.P; //ZOOM.C * 2, map(ZOOM.C, 2, 10, -2, 5)$
+        translate(this.width/2, this.height/2);
         scale(zoom, zoom);
+        translate(-this.width/2, -this.height/2);
     });
 
     beginShape();
@@ -230,7 +234,7 @@ function draw() {
 
 
     fill(LAYERS[PROPS.currLayer], 'no-repeat', function() {
-        translate(this.width, this.height);
+        
         scale(0.3);
     });
     rect(0, 0, width, height);
