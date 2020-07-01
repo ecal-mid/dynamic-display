@@ -88,7 +88,7 @@
 
 			this.push();
 			transforms.call();
-			ctx.scale(.5, .5);
+			ctx.scale(px, px);
 			
 			const matrix = ctx.getTransform();
 			this.pop();
