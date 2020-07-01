@@ -1,4 +1,3 @@
-//
 // var customContainer = document.getElementById('my-gui-container');
 // customContainer.appendChild(GUI.domElement);
 
@@ -6,9 +5,9 @@ let LAYERS = {};
 
 let ZOOM = {
     C: 1,
-    A: 1.3,
+    A: 1, //1.3
     S: 1,
-    P: 1.5,
+    P: 1, //1.5
 }
 
 
@@ -61,6 +60,9 @@ function setup() {
 
     const ratio = 0.7085001177;
     const paperWidth = 500;
+
+    // pixelDensity(1);
+
     createCanvas(paperWidth, round(paperWidth / ratio));
 
     setupGui();
