@@ -27,7 +27,7 @@ let lW = PROPS.letterWeight;
 let FONT;
 
 function preload() {
-let directory= 'rsrc/image/';
+    let directory= 'rsrc/image/';
     let dir= 'rsrc/image/';
 
     LAYERS['corbusier'] = loadLayer(dir + 'corbusier.png');
@@ -46,11 +46,10 @@ let directory= 'rsrc/image/';
 
 function loadLayer(imagePath) {
 
-    let layer = createGraphics(1, 1);
+    let layer = createGraphics(500, 705);
 
     loadImage(imagePath, function(img) {
-        layer.resizeCanvas(img.width, img.height);
-        layer.image(img, 0, 0);
+        layer.image(img, 0, 0, 500, 705);
     });
 
     return layer;
@@ -58,14 +57,7 @@ function loadLayer(imagePath) {
 
 function setup() {
 
-    const ratio = 0.7085001177;
-    const paperWidth = 500;
-
-    
-
-    createCanvas(paperWidth, round(paperWidth / ratio));
-
-    pixelDensity(2);
+    createCanvas(500, 705);
 
     setupGui();
 }
