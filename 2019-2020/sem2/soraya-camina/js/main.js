@@ -73,14 +73,14 @@ function setup() {
 function setupGui() {
     const gui = new dat.GUI();
 
-  gui.add(PROPS, 'currLayer', PROPS.layers).name('Image');
+  
     // ZOOM.folder = gui.addFolder('Zoom');
 
     gui.add(ZOOM, 'C').min(1).max(2);//.step(0.1);
     gui.add(ZOOM, 'A').min(1).max(2);//.step(0.1);
     gui.add(ZOOM, 'S').min(1).max(2);//.step(0.1);
     gui.add(ZOOM, 'P').min(1).max(2);//.step(0.1);
-
+    gui.add(PROPS, 'currLayer', PROPS.layers).name('Image');
     // ZOOM.folder.open();
 
     //gui.add(PROPS, 'letterWeight').min(30).max(72);
