@@ -52,15 +52,19 @@
 			ctx.resetTransform();
 			let px = 1/this._pixelDensity;
 			this.push();
-			// ctx.scale(.5, .5);
 		
 			transforms.call(p5Elem);
+			ctx.scale(.5, .5);
 
 			const matrix = ctx.getTransform();
 			this.pop();
+
+
+
 			ctx.restore();
 
 			pattern.setTransform(matrix);
+
 			
 			this._renderer._setFill(pattern);
 		}
@@ -85,10 +89,11 @@
 			ctx.save();
 			ctx.resetTransform();
 			let px = 1/this._pixelDensity;
-			ctx.scale(px, px);
+			
 			this.push();
 			transforms.call();
-			ctx.translate(-p5Elem.canvas.width/2, -p5Elem.canvas.height/2);
+			ctx.scale(.5, .5);
+			
 			const matrix = ctx.getTransform();
 			this.pop();
 			ctx.restore();
