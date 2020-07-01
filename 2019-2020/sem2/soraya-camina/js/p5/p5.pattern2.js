@@ -53,7 +53,7 @@
 			let px = 1/this._pixelDensity;
 		
 			transforms.call(p5Elem);
-			ctx.scale(1, 1);
+			ctx.scale(px, px);
 
 			const matrix = ctx.getTransform();
 
